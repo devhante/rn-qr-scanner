@@ -22,6 +22,7 @@ const Nfc = (props: IProps) => {
   const [value, setValue] = useState('');
 
   const handleClickNfcButton = () => {
+    alert('handleClickNfcButton');
     props.postMessage('nfc');
   };
 

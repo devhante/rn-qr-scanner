@@ -19,17 +19,11 @@ const Content = (props: { navValue: string }) => {
   const classes = useStyles();
 
   const postMessage = (message: string) => {
-    try {
-      let postMessage;
-      if (window.ReactNativeWebView) {
-        postMessage = window.ReactNativeWebView.postMessage;
-        postMessage(message);
-      } else {
-        postMessage = window.parent.postMessage;
-        postMessage(message, '*');
-      }
-    } catch (e) {
-      console.error(e.message);
+    alert(window.postMessage.length);
+    if (window.postMessage.length !== 1) {
+      setTimeout(postMessage, 200);
+    } else {
+      window.postMessage(message, '*');
     }
   };
 
